@@ -1,4 +1,4 @@
-import react from 'react'
+import react, {FC} from 'react'
 import './UserList.css'
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -19,7 +19,7 @@ interface Person {
 
 
 
-const Card = (props) => {
+const Card:React.FC<Person> = (props) => {
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>
