@@ -1,23 +1,17 @@
 import react, {FC} from 'react'
 import './UserList.css'
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import React from 'react';
-
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
+import React from 'react'
 
 interface Person {
     name: string;
     email: string;
     avatar: string;
   }
-
-
-
-
 
 const Card:React.FC<Person> = (props) => {
     return (
