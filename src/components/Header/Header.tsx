@@ -9,14 +9,14 @@ const Header: FC = () => {
     return(
       <>
         <Box className="header--box" >
-        <Typography variant="h5" gutterBottom component="div">
+        <Typography variant="h4" gutterBottom component="div">
         {title}
         </Typography> 
         <Typography variant="h5" gutterBottom component="div">
         {subtitle}
         </Typography>
         </Box>
-        </>
+      </>
   )
 }
 
