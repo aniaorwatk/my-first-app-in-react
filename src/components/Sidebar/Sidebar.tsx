@@ -19,7 +19,7 @@ React.useEffect(function() {
 
 
 
-}
+
 
 
     return(
@@ -31,7 +31,7 @@ React.useEffect(function() {
         <Typography variant= "h5" gutterBottom component= "div">
         {subtitle}
         </Typography>
-        <button onClick= {getShibaImage}> "Get new shiba image" </button>
+        <button> "Get new shiba image" </button>
         </Box>
       </>
     )
