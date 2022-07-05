@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
         <Typography variant= "h5" gutterBottom component= "div">
         {subtitle}
         </Typography>
-        <button> "Get new shiba image" </button>
+        <button className="sidebar--button"> Get new shiba image </button>
         </Box>
       </>
     )

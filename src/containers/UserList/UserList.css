@@ -1,0 +1,16 @@
+.UserList--box{
+    background-color: var(--cream-color);
+    color: var(--dark-color);
+}
+
+.sidebar--button{
+    padding: 1rem;
+    background-color: var(--cream-color);
+    color: var(--blue-color);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.sidebar--button:hover{
+    color: var(--dark-color)
+}
