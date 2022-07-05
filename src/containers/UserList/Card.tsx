@@ -25,13 +25,14 @@ const Card:React.FC<Person> = (props) => {
                     <Typography
                     sx={{ display: 'inline' }}
                      component="span"
-                     variant="body2"
-                    color="text.primary"
-            >
-                {props.name}
-            </Typography>
-                {props.email}
-            </React.Fragment>
+                     variant="body2"     
+                    >
+                        {props.name}
+                    </Typography>
+                    <Typography>
+                        {props.email}
+                    </Typography>
+                    </React.Fragment>
                 }
             />
         </ListItem>

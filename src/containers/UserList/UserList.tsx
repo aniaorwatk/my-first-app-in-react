@@ -9,8 +9,8 @@ export default function AlignItemsList() {
     <Box className="UserList--box">
       <List  sx={{ width: '100%', maxWidth: 360 }}>
         <Card 
-        name={''} 
-        email={''} 
+        name={'Ania'} 
+        email={'orwat.ania@gmail.com'} 
         avatar={''} 
         />
       </List>
