@@ -6,6 +6,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
+// import dataCard from './dataCard'
 
 interface Person {
     name: string;
@@ -13,21 +14,33 @@ interface Person {
     avatar: string;
 }
 
-const Card:React.FC<Person> = (props) => {
+
+const[dataPerson, setdataPerson ]= React.useState ([])
+
+    React.useEffect(function () {
+        fetch("https://reqres.in/api/")
+            .then(res => res.json())
+            .then(data => setdataPerson(data))
+            .catch(err => console.log("error"))
+    }, [2])
+
+    setdataPerson
+
+const Card: React.FC<Person> = (props) => {
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="avatar" src={JSON.stringify(dataPerson)} />
             </ ListItemAvatar>
             <ListItemText
                 secondary={
                     <React.Fragment>
-                    <Typography>
-                        {props.name}
-                    </ Typography>
-                    <Typography>
-                        {props.email}
-                    </ Typography>
+                        <Typography>
+                            {props.name}
+                        </ Typography>
+                        <Typography>
+                            {props.email}
+                        </ Typography>
                     </ React.Fragment>
                 }
             />
