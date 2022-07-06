@@ -14,7 +14,7 @@ interface Person {
 const Card = () => {
   const [dataUsers, setDataUsers] = React.useState<Person[]>([]);
   const f = async () => {
-  const res = await fetch("https://reqres.in/api/users?page=1");
+  const res = await fetch("https://reqres.in/api/users?page=2");
   const json = await res.json();
   setDataUsers(json.data);
   };
@@ -23,6 +23,7 @@ useEffect(() => {
 }, []);
  
 return (
+  <>
   <ListItem>
     <div>
       {dataUsers.length &&
@@ -47,9 +48,10 @@ return (
           </div>
         );
       })}
-    </div>
-    <hr/>
+    </div> 
   </ListItem>
+  <button className="listItem--button">Change Page</button>
+  </>
 );
 }
 

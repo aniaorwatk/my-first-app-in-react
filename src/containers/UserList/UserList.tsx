@@ -4,12 +4,14 @@ import Card from './Card';
 import List from '@mui/material/List';
 import {Box} from '@mui/material';
 
-export default function AlignItemsList() {
+const UserList = () => {
   return (
-    <Box className="UserList--box">
+    <Box className="userList--box">
       <List  sx={{ width: '100%', maxWidth: 360 }}>
         <Card />
       </List>
     </Box>   
   )
 }
+
+export default UserList;

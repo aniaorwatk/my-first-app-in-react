@@ -1,17 +1,27 @@
-.UserList--box{
+.userList--box{
+    display: flex;
+    justify-content: center;
     background-color: var(--cream-color);
     color: var(--dark-color);
-    width: 100%;
 }
 
 .listItem--card{
     display: flex;
     padding: 0.5rem 1rem;
-    width: 100%;
+    border-bottom: 1px solid black;
 }
 
 .listItem--card:hover{
     background-color: rgb(229, 226, 226);
+}
+
+.listItem--button{
+    width: 20rem;
+    padding: 1rem;
+    background-color: var(--blue-color);
+    color: var(--cream-color);
+    font-weight: bold;
+    border-radius: 5px; 
 }
 
 .sidebar--button{
