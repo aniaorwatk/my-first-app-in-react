@@ -12,10 +12,11 @@ interface Person {
 }
 
 const Card = () => {
-  const [dataUsers, setDataUsers] = useState<Person[]>([]);
+  const [dataUsers, setDataUsers] = useState<Person[]>([])
+  const URL ="https://reqres.in/api/users?page=2";
   const apiUser = async () => {
-  const res = await fetch("https://reqres.in/api/users?page=2")
-  const json = await res.json();
+  const res = await fetch(URL)
+  const json = await res.json()
   setDataUsers(json.data)
   };
 
