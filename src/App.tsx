@@ -6,8 +6,8 @@ import UserList from './containers/UserList/UserList';
 function App() {
   return (
     <Container>
-        <Header />
-        <UserList />
+      <Header />
+      <UserList />
     </Container>
   )
 }
