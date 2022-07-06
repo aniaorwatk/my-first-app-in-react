@@ -1,52 +1,56 @@
-import react, {FC} from 'react';
-import './UserList.css';
+import React, {FC, useEffect,useState} from 'react'
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import React from 'react';
-
-
 interface Person {
-    first_name: string;
-    email: string;
-    avatar: string;
+  first_name: string;
+  email: string;
+  avatar: string;
+  id:number;
 }
 
-const Card = (props:Person) => {
-const[dataPerson, setdataPerson ]= React.useState<Person[]> ([])
-
-    React.useEffect(function () {
-        fetch("https://reqres.in/api/users?page=1")
-            .then(res => res.json())
-            .then(data => setdataPerson(data))
-            .catch(err => console.log("error"))
-            console.log(dataPerson)
-    }, [])
-console.log(dataPerson)
-{dataPerson.length && dataPerson.map((person)=>{
-    return (
-
-        <ListItem alignItems="flex-start">
+const Card = () => {
+  const [dataUsers, setDataUsers] = React.useState<Person[]>([]);
+  const f = async () => {
+  const res = await fetch("https://reqres.in/api/users?page=1");
+  const json = await res.json();
+  setDataUsers(json.data);
+  };
+useEffect(() => {
+  f();
+}, []);
+ 
+return (
+  <ListItem>
+    <div>
+      {dataUsers.length &&
+      dataUsers.map((user) => {
+        return (
+          <div key={user.id} className="listItem--card">
             <ListItemAvatar>
-                <Avatar alt="avatar" src={props.avatar} />
+              <Avatar key={user.avatar} src={user.avatar}/>
             </ ListItemAvatar>
             <ListItemText
-                secondary={
-                    <React.Fragment>
-                        <Typography>
-                            {props.first_name}
-                        </ Typography>
-                        <Typography>
-                            {props.email}
-                        </ Typography>
-                    </ React.Fragment>
-                }
-            />
-        </ListItem>
-    )
-            })}
+              secondary={
+                <React.Fragment>
+                  <Typography>
+                    {user.first_name}
+                  </ Typography>
+                  <Typography>
+                  {user.email}
+                  </Typography>
+                </React.Fragment>
+              }
+            /> 
+          </div>
+        );
+      })}
+    </div>
+    <hr/>
+  </ListItem>
+);
 }
 
-export default Card;
+export default Card

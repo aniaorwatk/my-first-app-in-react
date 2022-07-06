@@ -8,9 +8,7 @@ export default function AlignItemsList() {
   return (
     <Box className="UserList--box">
       <List  sx={{ width: '100%', maxWidth: 360 }}>
-        <Card 
-       
-        />
+        <Card />
       </List>
     </Box>   
   )
