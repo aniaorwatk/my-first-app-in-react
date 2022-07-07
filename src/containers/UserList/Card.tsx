@@ -26,11 +26,11 @@ const Card = () => {
  
 useEffect( () => {
   apiUser()
-}, []);
+}, [numberPage]);
 
 console.log(totalPages)
 
-const changePage = () => (numberPage < totalPages ? numberPage + 1 : numberPage -1)
+const changePage = () => (numberPage < totalPages ? setNumberPage(numberPage + 1) : setNumberPage(numberPage -1))
 
 return (
   <>
