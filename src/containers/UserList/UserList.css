@@ -1,28 +1,28 @@
+.userList{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
 .userList--box{
-    display: flex;
-    justify-content: center;
-    background-color: var(--cream-color);
-    color: var(--dark-color);
-    
+    background-image: url("../UserList/grey-background.jpg");
 }
 
 .listItem--card{
-    display: flex;
-    padding: 0.5rem 1rem;
+    margin: 3rem;
     border-bottom-left-radius: 5px;
-    border-bottom: 0.3px solid var(--cream-color);
-    border-left: 0.3px solid var(--cream-color);
+    box-shadow: 2px 2px 2px black;
+    width: 15rem;
 }
 
-.listItem--card:hover{
-    background-color: rgb(229, 226, 226);
-    border-bottom: 0.3px solid var(--dark-color);
-    border-left: 0.3px solid var(--dark-color);
+.userList--lernMore{
+    color: var(--blue-color);
 }
 
 .listItem--button{
     width: 20rem;
     padding: 1rem;
+    margin-bottom: 3rem;
     background-color: var(--blue-color);
     color: var(--cream-color);
     font-weight: bold;

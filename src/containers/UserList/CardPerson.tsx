@@ -1,0 +1,77 @@
+import React, { FC, useEffect, useState } from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+interface Person {
+  first_name: string;
+  email: string;
+  avatar: string;
+  id: number;
+}
+
+const CardPerson = () => {
+  const [dataUsers, setDataUsers] = useState<Person[]>([])
+  const [totalPages, setTolatPages] = useState(1)
+  const [numberPage, setNumberPage] = useState(1)
+  const URL = `https://reqres.in/api/users?page=${numberPage}`;
+  const apiUser = async () => {
+    const res = await fetch(URL)
+    const json = await res.json()
+    setDataUsers(json.data)
+    setTolatPages(json.total_pages)
+    setNumberPage(json.page)
+  };
+
+  useEffect(() => {
+    apiUser()
+  }, [numberPage]);
+
+  let add = numberPage + 1;
+  let subtract = numberPage - 1;
+  const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
+
+  return (
+    <section className="userList">
+      <div className="userList">
+        {dataUsers.length &&
+          dataUsers.map((user) => {
+            return (
+              <div key={user.id} className="listItem--card">
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia
+                    component="img"
+                    alt="Photo User"
+                    height="180"
+                    key={user.avatar}
+                    image={user.avatar}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {user.first_name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {user.email}
+                    </Typography>
+                  </CardContent>
+                  <CardActions></CardActions>
+                  <CardActions>
+                    <Button className="userList--lernMore" size="small">Learn More</Button>
+                  </CardActions>
+                </Card>
+
+              </div>
+            )
+          })
+        }
+
+      </div>
+      <button className="listItem--button" onClick={changePage}>Change Page</button>
+    </section>
+  )
+}
+
+export default CardPerson;
