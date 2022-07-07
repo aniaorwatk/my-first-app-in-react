@@ -13,17 +13,25 @@ interface Person {
 
 const Card = () => {
   const [dataUsers, setDataUsers] = useState<Person[]>([])
-  const URL ="https://reqres.in/api/users?page=2";
+  const [totalPages, setTolatPages] = useState(1)
+  const [numberPage, setNumberPage] = useState(1)
+  const URL =`https://reqres.in/api/users?page=${numberPage}`;
   const apiUser = async () => {
   const res = await fetch(URL)
   const json = await res.json()
-  setDataUsers(json.data)
+  setDataUsers (json.data)
+  setTolatPages (json.total_pages)
+  setNumberPage (json.page)
   };
-
+ 
 useEffect( () => {
   apiUser()
 }, []);
- 
+
+console.log(totalPages)
+
+const changePage = () => (numberPage < totalPages ? numberPage + 1 : numberPage -1)
+
 return (
   <>
    <ListItem>
@@ -34,15 +42,15 @@ return (
            <div key={user.id} className="listItem--card">
              <ListItemAvatar>
                <Avatar key={user.avatar} src={user.avatar}/>
-             </ ListItemAvatar>
+             </ListItemAvatar>
              <ListItemText
                secondary={
                  <React.Fragment>
                    <Typography>
                      {user.first_name}
-                   </ Typography>
+                   </Typography>
                    <Typography>
-                   {user.email}
+                    {user.email}
                    </Typography>
                  </React.Fragment>
                }
@@ -52,7 +60,7 @@ return (
        })}
      </div> 
    </ListItem>
-   <button className="listItem--button">Change Page</button>
+   <button className="listItem--button" onClick={changePage}>Change Page</button>
   </>
 )
 }

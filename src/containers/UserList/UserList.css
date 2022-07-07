@@ -3,16 +3,21 @@
     justify-content: center;
     background-color: var(--cream-color);
     color: var(--dark-color);
+    
 }
 
 .listItem--card{
     display: flex;
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom: 0.3px solid var(--cream-color);
+    border-left: 0.3px solid var(--cream-color);
 }
 
 .listItem--card:hover{
     background-color: rgb(229, 226, 226);
+    border-bottom: 0.3px solid var(--dark-color);
+    border-left: 0.3px solid var(--dark-color);
 }
 
 .listItem--button{
@@ -22,6 +27,10 @@
     color: var(--cream-color);
     font-weight: bold;
     border-radius: 5px; 
+}
+
+.listItem--button:hover{
+    color: var(--dark-color);
 }
 
 .sidebar--button{
