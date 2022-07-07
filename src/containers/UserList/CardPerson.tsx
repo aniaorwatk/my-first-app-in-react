@@ -17,16 +17,16 @@ const CardPerson = () => {
   const [dataUsers, setDataUsers] = useState<Person[]>([])
   const [totalPages, setTolatPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)
-  const URL = `https://reqres.in/api/users?page=${numberPage}`;
-  const apiUser = async () => {
-    const res = await fetch(URL)
-    const json = await res.json()
-    setDataUsers(json.data)
-    setTolatPages(json.total_pages)
-    setNumberPage(json.page)
-  };
 
   useEffect(() => {
+    const apiUser = async () => {
+      const URL = `https://reqres.in/api/users?page=${numberPage}`;
+      const res = await fetch(URL)
+      const json = await res.json()
+      setDataUsers(json.data)
+      setTolatPages(json.total_pages)
+      setNumberPage(json.page)
+    };
     apiUser()
   }, [numberPage]);
 
