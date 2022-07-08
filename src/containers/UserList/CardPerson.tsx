@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
 
 interface Person {
   first_name: string;
+  last_name: string;
   email: string;
   avatar: string;
   id: number;
@@ -31,24 +32,27 @@ const CardPerson = () => {
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
 
-  const [query, setQuery] = useState('')
-  const searchName = "Find User: ";
-  const searchButtonName = "Search";
-  // const textInput:string = (e.target.value.toUpperCase());
-
-  const searchPeople = () => {
+  const [query, setQuery] = useState<string>('')
+  const searchName: string = "Find User: ";
+  const searchButtonName: string = "Search";
 
 
-
+  const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+    console.log(query)
   }
 
   return (
     <section className="userList">
-      <form className="form" onSubmit={searchPeople}>
+      <form className="form">
+        {/* onSubmit={} - to powinno być linike wyżej */}
         <label className="label" htmlFor="query">{searchName}</label>
-        <input className="input" type="text" name="query"
+        <input className="input"
+          type="text"
+          name="query"
           placeholder="write search user"
-        value={query} onChange={(e) => setQuery(e.target.value.toUpperCase())}
+          value={query}
+          onChange={searchPeople}
         />
         <button className="button" type="submit">{searchButtonName}</button>
       </form>
