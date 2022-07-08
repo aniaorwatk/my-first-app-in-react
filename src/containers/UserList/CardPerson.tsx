@@ -30,8 +30,28 @@ const CardPerson = () => {
   const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
+
+  const [query, setQuery] = useState('')
+  const searchName = "Find User: ";
+  const searchButtonName = "Search";
+  // const textInput:string = (e.target.value.toUpperCase());
+
+  const searchPeople = () => {
+
+
+
+  }
+
   return (
     <section className="userList">
+      <form className="form" onSubmit={searchPeople}>
+        <label className="label" htmlFor="query">{searchName}</label>
+        <input className="input" type="text" name="query"
+          placeholder="write search user"
+        value={query} onChange={(e) => setQuery(e.target.value.toUpperCase())}
+        />
+        <button className="button" type="submit">{searchButtonName}</button>
+      </form>
       <div className="userList">
         {dataUsers.length &&
           dataUsers.map((user) => {
