@@ -1,7 +1,6 @@
-import react, { FC } from 'react';
-import './UserList.css';
-import CardPerson from './CardPerson';
 import { Box } from '@mui/material';
+import CardPerson from './CardPerson';
+import './UserList.css';
 
 const UserList = () => {
   return (

@@ -1,10 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
 
 interface Person {
   first_name: string;
@@ -30,8 +25,9 @@ const CardPerson = () => {
     apiUser()
   }, [numberPage]);
 
-  let add = numberPage + 1;
-  let subtract = numberPage - 1;
+  const learnMore = "Learn more";
+  const add = numberPage + 1;
+  const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
   return (
@@ -57,12 +53,10 @@ const CardPerson = () => {
                       {user.email}
                     </Typography>
                   </CardContent>
-                  <CardActions></CardActions>
                   <CardActions>
-                    <Button className="userList--lernMore" size="small">Learn More</Button>
+                    <Button className="userList--lernMore" size="small">{learnMore}</Button>
                   </CardActions>
                 </Card>
-
               </div>
             )
           })
