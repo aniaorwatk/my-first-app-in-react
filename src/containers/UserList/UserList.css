@@ -1,7 +1,15 @@
 .userList{
 display: flex;
 flex-wrap: wrap;
+flex-direction: column;
 justify-content: center;
+align-items: center;
+}
+
+.user{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
 }
 
 .userList--box{
@@ -32,7 +40,7 @@ justify-content: center;
     border-radius: 5px; 
 }
 
-.listItem--button:hover, .form >button:hover{
+.listItem--button:hover, .form>button:hover{
     color: var(--dark-color);
 }
 

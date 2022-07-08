@@ -31,21 +31,16 @@ const CardPerson = () => {
   const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
-
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
-  const searchButtonName: string = "Search";
-
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
-    console.log(query)
   }
 
   return (
     <section className="userList">
       <form className="form">
-        {/* onSubmit={} - to powinno być linike wyżej */}
         <label className="label" htmlFor="query">{searchName}</label>
         <input className="input"
           type="text"
@@ -54,11 +49,16 @@ const CardPerson = () => {
           value={query}
           onChange={searchPeople}
         />
-        <button className="button" type="submit">{searchButtonName}</button>
       </form>
-      <div className="userList">
+      <div className="user">
         {dataUsers.length &&
-          dataUsers.map((user) => {
+          dataUsers.filter((val) => {
+            if (query == "") {
+              return val
+            } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
+              return val
+            }
+          }).map((user) => {
             return (
               <div key={user.id} className="listItem--card">
                 <Card sx={{ maxWidth: 345 }}>
@@ -93,3 +93,11 @@ const CardPerson = () => {
 }
 
 export default CardPerson;
+
+
+
+{/* <div className="userList">
+        {dataUsers.length &&
+          dataUsers.map((user) => {
+            return (
+              <div key={user.id} className="listItem--card"></div> */}
