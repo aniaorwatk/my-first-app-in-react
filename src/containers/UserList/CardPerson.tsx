@@ -85,7 +85,6 @@ const CardPerson = () => {
             )
           })
         }
-
       </div>
       <button className="listItem--button" onClick={changePage}>Change Page</button>
     </section>
