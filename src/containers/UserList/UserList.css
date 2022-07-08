@@ -1,0 +1,46 @@
+.userList{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.userList--box{
+    background-image: url("../UserList/grey-background.jpg");
+}
+
+.listItem--card{
+    margin: 3rem;
+    border-bottom-left-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    width: 15rem;
+}
+
+.userList--lernMore{
+    color: var(--blue-color);
+}
+
+.listItem--button{
+    width: 20rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    background-color: var(--blue-color);
+    color: var(--cream-color);
+    font-weight: bold;
+    border-radius: 5px; 
+}
+
+.listItem--button:hover{
+    color: var(--dark-color);
+}
+
+.sidebar--button{
+    padding: 1rem;
+    background-color: var(--cream-color);
+    color: var(--blue-color);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.sidebar--button:hover{
+    color: var(--dark-color);
+}
