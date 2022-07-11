@@ -59,13 +59,9 @@ const CardPerson = () => {
       <div className="user">
         {dataUsers.length &&
           dataUsers.filter((val) => {
-            if (query == "") {
+            if ((query == "") || (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase()))) {
               return val
-            } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
-              return val
-            } else {
-              <p>USERS NOT FOUND</p>
-            }
+            } 
           }).map((user) => {
             return (
               <div key={user.id} className="listItem--card">
@@ -102,9 +98,8 @@ const CardPerson = () => {
 export default CardPerson;
 
 
-
-{/* <div className="userList">
-        {dataUsers.length &&
-          dataUsers.map((user) => {
-            return (
-              <div key={user.id} className="listItem--card"></div> */}
+// if (query == "") {
+//   return val
+// } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
+//   return val
+// }
