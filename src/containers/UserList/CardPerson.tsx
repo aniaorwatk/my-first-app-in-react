@@ -59,7 +59,7 @@ const CardPerson = () => {
       <div className="user">
         {dataUsers.length &&
           dataUsers.filter((val) => {
-            if ((query == "") || (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase()))) {
+            if (!query || val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
               return val
             } 
           }).map((user) => {
