@@ -83,11 +83,11 @@ const CardPerson = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                  <Link to={`/${user.id}`}>
-                    <Button className="userList--lernMore" size="small">
-                          {learnMore}
-                    </Button>
-                  </Link>
+                    <Link to={`/${user.id}`}>
+                      <Button className="userList--lernMore" size="small">
+                        {learnMore}
+                      </Button>
+                    </Link>
                   </CardActions>
                 </Card>
               </div>

@@ -1,4 +1,4 @@
-import {Container}  from '@mui/material';
+import { Container } from '@mui/material';
 import Header from './components/Header/Header';
 import UserList from './containers/UserList/UserList';
 import { Route, Routes } from 'react-router-dom';
@@ -10,8 +10,8 @@ function App() {
     <Container>
       <Header />
       <Routes>
-      <Route path="/" element={<UserList />} />
-      <Route path="/:id" element={<SinglePage />} />
+        <Route path="/" element={<UserList />} />
+        <Route path="/:id" element={<SinglePage />} />
       </ Routes>
     </Container>
   )
