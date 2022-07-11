@@ -19,6 +19,12 @@ const CardPerson = () => {
       const URL = `https://reqres.in/api/users?page=${numberPage}`;
       const res = await fetch(URL)
       const json = await res.json()
+
+      if (!(res.status === 200)) {
+        const msg = `Users not found: ${res.status}`
+        throw alert(msg)
+      }
+
       setDataUsers(json.data)
       setTolatPages(json.total_pages)
       setNumberPage(json.page)
@@ -57,6 +63,8 @@ const CardPerson = () => {
               return val
             } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
               return val
+            } else {
+              <p>USERS NOT FOUND</p>
             }
           }).map((user) => {
             return (
