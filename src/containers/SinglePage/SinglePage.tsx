@@ -1,9 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useForm, Resolver } from "react-hook-form";
 import './SinglePage.css'
-
-
-
 interface FormValues {
     title: string;
     mes: string;
