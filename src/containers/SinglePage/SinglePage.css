@@ -31,6 +31,10 @@
     margin-bottom: 10px;
     font-size: 14px;
   }
+
+  textarea{
+    height: 15rem;
+  }
   
   .label--singelPage {
     line-height: 2;
