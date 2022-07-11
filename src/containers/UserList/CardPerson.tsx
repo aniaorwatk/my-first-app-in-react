@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
+import { Link, Route, Routes, BrowserRouter} from 'react-router-dom';
+import SinglePage from '../SinglePage/SinglePage'
 
 interface Person {
   first_name: string;
@@ -61,7 +63,7 @@ const CardPerson = () => {
           dataUsers.filter((val) => {
             if (!query || val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
               return val
-            } 
+            }
           }).map((user) => {
             return (
               <div key={user.id} className="listItem--card">
@@ -82,7 +84,11 @@ const CardPerson = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button className="userList--lernMore" size="small">{learnMore}</Button>
+                  <Link to={`/${user.id}`}>
+                    <Button className="userList--lernMore" size="small">
+                          {learnMore}
+                    </Button>
+                  </Link>
                   </CardActions>
                 </Card>
               </div>
@@ -96,3 +102,55 @@ const CardPerson = () => {
 }
 
 export default CardPerson;
+
+
+// return (
+//   <section className="userList">
+//     <form className="form">
+//       <label className="label" htmlFor="query">{searchName}</label>
+//       <input className="input"
+//         type="text"
+//         name="query"
+//         placeholder="write search user"
+//         value={query}
+//         onChange={searchPeople}
+//       />
+//     </form>
+//     <div className="user">
+//       {dataUsers.length &&
+//         dataUsers.filter((val) => {
+//           if (!query || val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
+//             return val
+//           }
+//         }).map((user) => {
+//           return (
+//             <div key={user.id} className="listItem--card">
+//               <Card sx={{ maxWidth: 345 }}>
+//                 <CardMedia
+//                   component="img"
+//                   alt="Photo User"
+//                   height="180"
+//                   key={user.avatar}
+//                   image={user.avatar}
+//                 />
+//                 <CardContent>
+//                   <Typography gutterBottom variant="h5" component="div">
+//                     {user.first_name}
+//                   </Typography>
+//                   <Typography variant="body2" color="text.secondary">
+//                     {user.email}
+//                   </Typography>
+//                 </CardContent>
+//                 <CardActions>
+//                   <Button className="userList--lernMore" size="small">{learnMore}</Button>
+//                 </CardActions>
+//               </Card>
+//             </div>
+//           )
+//         })
+//       }
+//     </div>
+//     <button className="listItem--button" onClick={changePage}>Change Page</button>
+//   </section>
+// )
+// }
