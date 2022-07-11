@@ -1,7 +1,15 @@
 .userList{
 display: flex;
 flex-wrap: wrap;
+flex-direction: column;
 justify-content: center;
+align-items: center;
+}
+
+.user{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
 }
 
 .userList--box{
@@ -21,6 +29,9 @@ justify-content: center;
 
 .listItem--button{
     width: 20rem;
+}
+
+.listItem--button, .form >button{
     padding: 1rem;
     margin-bottom: 3rem;
     background-color: var(--blue-color);
@@ -29,7 +40,7 @@ justify-content: center;
     border-radius: 5px; 
 }
 
-.listItem--button:hover{
+.listItem--button:hover, .form>button:hover{
     color: var(--dark-color);
 }
 
@@ -42,5 +53,24 @@ justify-content: center;
 }
 
 .sidebar--button:hover{
+    color: var(--dark-color);
+}
+
+.form{
+    display: flex;
+    margin: 3rem;
+    font-size: 2rem;
+}
+
+.form >button{
+    width: 10rem;
+}
+
+.input{
+    height: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.1rem; 
+    font-size: 2rem; 
     color: var(--dark-color);
 }

@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
 
 interface Person {
   first_name: string;
+  last_name: string;
   email: string;
   avatar: string;
   id: number;
@@ -18,6 +19,12 @@ const CardPerson = () => {
       const URL = `https://reqres.in/api/users?page=${numberPage}`;
       const res = await fetch(URL)
       const json = await res.json()
+
+      if (!(res.status === 200)) {
+        const msg = `Users not found: ${res.status}`
+        throw alert(msg)
+      }
+
       setDataUsers(json.data)
       setTolatPages(json.total_pages)
       setNumberPage(json.page)
@@ -30,11 +37,32 @@ const CardPerson = () => {
   const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
+  const [query, setQuery] = useState<string>('')
+  const searchName: string = "Find User: ";
+
+  const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+  }
+
   return (
     <section className="userList">
-      <div className="userList">
+      <form className="form">
+        <label className="label" htmlFor="query">{searchName}</label>
+        <input className="input"
+          type="text"
+          name="query"
+          placeholder="write search user"
+          value={query}
+          onChange={searchPeople}
+        />
+      </form>
+      <div className="user">
         {dataUsers.length &&
-          dataUsers.map((user) => {
+          dataUsers.filter((val) => {
+            if (!query || val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
+              return val
+            } 
+          }).map((user) => {
             return (
               <div key={user.id} className="listItem--card">
                 <Card sx={{ maxWidth: 345 }}>
@@ -61,7 +89,6 @@ const CardPerson = () => {
             )
           })
         }
-
       </div>
       <button className="listItem--button" onClick={changePage}>Change Page</button>
     </section>
@@ -69,3 +96,10 @@ const CardPerson = () => {
 }
 
 export default CardPerson;
+
+
+// if (query == "") {
+//   return val
+// } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
+//   return val
+// }
