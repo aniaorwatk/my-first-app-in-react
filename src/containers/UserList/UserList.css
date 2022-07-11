@@ -31,7 +31,7 @@ align-items: center;
     width: 20rem;
 }
 
-.listItem--button, .form >button{
+.listItem--button, .form--card >button{
     padding: 1rem;
     margin-bottom: 3rem;
     background-color: var(--blue-color);
@@ -40,7 +40,7 @@ align-items: center;
     border-radius: 5px; 
 }
 
-.listItem--button:hover, .form>button:hover{
+.listItem--button:hover, .form--card>button:hover{
     color: var(--dark-color);
 }
 
@@ -56,17 +56,17 @@ align-items: center;
     color: var(--dark-color);
 }
 
-.form{
+.form--card{
     display: flex;
     margin: 3rem;
     font-size: 2rem;
 }
 
-.form >button{
+.form--card >button{
     width: 10rem;
 }
 
-.input{
+.input--card{
     height: 3rem;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -74,3 +74,5 @@ align-items: center;
     font-size: 2rem; 
     color: var(--dark-color);
 }
+
+

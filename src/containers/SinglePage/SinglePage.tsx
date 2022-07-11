@@ -38,16 +38,16 @@ function SinglePage() {
 
     return (
         <div className="App">
-            <h1>{messagetoUser}</h1>
+            <h1 className="h1--form">{messagetoUser}</h1>
             <form onSubmit={onSubmit}>
                 <div>
-                    <label>{title}</label>
+                    <label className="label--singelPage">{title}</label>
                     <input {...register("title")} placeholder="Title..." />
                     {errors?.title && <p>{errors.title.message}</p>}
                 </div>
 
                 <div>
-                    <label>{message}</label>
+                    <label className="label--singelPage" >{message}</label>
                     <textarea {...register("mes")} placeholder="Message..." />
                 </div>
 

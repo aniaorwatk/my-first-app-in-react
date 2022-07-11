@@ -47,9 +47,9 @@ const CardPerson = () => {
 
   return (
     <section className="userList">
-      <form className="form">
-        <label className="label" htmlFor="query">{searchName}</label>
-        <input className="input"
+      <form className="form--card">
+        <label className="label--card" htmlFor="query">{searchName}</label>
+        <input className="input--card"
           type="text"
           name="query"
           placeholder="write search user"

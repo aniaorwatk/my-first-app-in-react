@@ -3,7 +3,7 @@
     margin: 0 auto;
   }
   
-  h1 {
+  .h1--form {
     font-weight: 100;
     color: var(--dark-color);
     text-align: center;
@@ -32,7 +32,7 @@
     font-size: 14px;
   }
   
-  label {
+  .label--singelPage {
     line-height: 2;
     text-align: left;
     display: block;
