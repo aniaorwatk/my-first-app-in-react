@@ -96,10 +96,3 @@ const CardPerson = () => {
 }
 
 export default CardPerson;
-
-
-// if (query == "") {
-//   return val
-// } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
-//   return val
-// }
