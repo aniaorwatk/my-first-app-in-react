@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
-import { Link, Route, Routes, BrowserRouter} from 'react-router-dom';
-import SinglePage from '../SinglePage/SinglePage'
+import { Link } from 'react-router-dom';
 
-interface Person {
+export interface Person {
   first_name: string;
   last_name: string;
   email: string;

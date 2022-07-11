@@ -1,7 +1,7 @@
 import {Container}  from '@mui/material';
 import Header from './components/Header/Header';
 import UserList from './containers/UserList/UserList';
-import { Link, Route, Routes, BrowserRouter} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import SinglePage from './containers/SinglePage/SinglePage';
 
 
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
       <Route path="/" element={<UserList />} />
-      <Route path="/:id" element={<SinglePage/>} />
+      <Route path="/:id" element={<SinglePage />} />
       </ Routes>
     </Container>
   )
