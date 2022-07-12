@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
-
-interface Person {
+export interface Person {
   first_name: string;
   last_name: string;
   email: string;
@@ -10,6 +10,7 @@ interface Person {
 }
 
 const CardPerson = () => {
+
   const [dataUsers, setDataUsers] = useState<Person[]>([])
   const [totalPages, setTolatPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)
@@ -46,9 +47,9 @@ const CardPerson = () => {
 
   return (
     <section className="userList">
-      <form className="form">
-        <label className="label" htmlFor="query">{searchName}</label>
-        <input className="input"
+      <form className="form--card">
+        <label className="label--card" htmlFor="query">{searchName}</label>
+        <input className="input--card"
           type="text"
           name="query"
           placeholder="write search user"
@@ -61,7 +62,7 @@ const CardPerson = () => {
           dataUsers.filter((val) => {
             if (!query || val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
               return val
-            } 
+            }
           }).map((user) => {
             return (
               <div key={user.id} className="listItem--card">
@@ -82,7 +83,11 @@ const CardPerson = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button className="userList--lernMore" size="small">{learnMore}</Button>
+                    <Link to={`/${user.id}`}>
+                      <Button className="userList--lernMore" size="small">
+                        {learnMore}
+                      </Button>
+                    </Link>
                   </CardActions>
                 </Card>
               </div>
@@ -96,10 +101,3 @@ const CardPerson = () => {
 }
 
 export default CardPerson;
-
-
-// if (query == "") {
-//   return val
-// } else if (val.email.toLowerCase().includes(query.toLowerCase()) || val.first_name.toLowerCase().includes(query.toLowerCase())) {
-//   return val
-// }
