@@ -9,13 +9,15 @@ interface FormValues {
 }
 
 const resolver: Resolver<FormValues> = async (values) => {
+    const typeTitle ="required";
+    const messageTitle ="This is required.";
     return {
         values: !values.title ? {} : values,
         errors: !values.title
             ? {
                 title: {
-                    type: "required",
-                    message: "This is required."
+                    type: typeTitle,
+                    message: messageTitle
                 }
             }
             : {}
