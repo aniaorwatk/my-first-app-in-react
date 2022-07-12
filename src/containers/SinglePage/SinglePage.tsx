@@ -51,10 +51,11 @@ function SinglePage() {
     } = useForm<FormValues>({
         resolver: resolver
     });
+
     const onSubmit = handleSubmit((data) => alert(JSON.stringify(data)));
     const title: string = "Title message";
-    const messagetoUser: string = `Write a message to the`;
-    const message: string = "Your message"
+    const messagetoUser: string = "Write a message to the";
+    const message: string = "Your message";
 
     return (
        
@@ -66,12 +67,10 @@ function SinglePage() {
                     <input {...register("title")} placeholder="Title..." />
                     {errors?.title && <p>{errors.title.message}</p>}
                 </div>
-
                 <div>
                     <label className="label--singelPage" >{message}</label>
                     <textarea {...register("mes")} placeholder="Message..." />
                 </div>
-
                 <input type="submit" />
             </form>
         </div>
