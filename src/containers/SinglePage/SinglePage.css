@@ -88,4 +88,23 @@
     max-width: 100rem;
     margin: 0 auto;
   }
+
+  .singlePage--cardUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .singlePage--image{
+    width: 20rem;
+    border-radius: 1rem;
+    margin: 2rem;
+  }
+
+  .singlePage--name{
+    font-size: 2rem;
+  }
+
+
   

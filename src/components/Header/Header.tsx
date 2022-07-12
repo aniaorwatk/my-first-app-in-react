@@ -1,4 +1,4 @@
-import react, {FC} from 'react';
+import React, {FC} from 'react';
 import {Box, Typography} from '@mui/material';
 import './Header.css';
 
