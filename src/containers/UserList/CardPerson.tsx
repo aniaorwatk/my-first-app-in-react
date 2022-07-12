@@ -11,6 +11,7 @@ export interface Person {
 }
 
 const CardPerson = () => {
+
   const [dataUsers, setDataUsers] = useState<Person[]>([])
   const [totalPages, setTolatPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)

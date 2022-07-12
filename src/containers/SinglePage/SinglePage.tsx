@@ -1,10 +1,13 @@
-import React, { FC, useState } from 'react';
-import { useForm, Resolver } from "react-hook-form";
+import React, { FC, useState, useEffect } from 'react';
+import { useForm, Resolver } from 'react-hook-form';
 import './SinglePage.css'
+import { useParams } from 'react-router-dom';
+import {Person} from '../UserList/CardPerson'
+
 interface FormValues {
     title: string;
     mes: string;
-};
+}
 
 const resolver: Resolver<FormValues> = async (values) => {
     return {
@@ -21,6 +24,26 @@ const resolver: Resolver<FormValues> = async (values) => {
 };
 
 function SinglePage() {
+
+    const para = useParams()
+    const [dataUsers, setDataUsers] = useState<Person[]>([])
+    useEffect(() => {
+        const apiUser = async () => {
+          const URL = `https://reqres.in/api/users/${para.id}`;
+          const res = await fetch(URL)
+          const json = await res.json()
+    
+          if (!(res.status === 200)) {
+            const msg = `Users not found: ${res.status}`
+            throw alert(msg)
+          }
+    
+          setDataUsers(json.data)
+          
+        };
+        apiUser()
+      }, [para]);
+
     const {
         register,
         handleSubmit,
@@ -30,12 +53,13 @@ function SinglePage() {
     });
     const onSubmit = handleSubmit((data) => alert(JSON.stringify(data)));
     const title: string = "Title message";
-    const messagetoUser: string = "Write a message to the user";
+    const messagetoUser: string = `Write a message to the`;
     const message: string = "Your message"
 
     return (
+       
         <div className="App">
-            <h1 className="h1--form">{messagetoUser}</h1>
+            <h1 className="h1--form"> {messagetoUser} </h1>
             <form onSubmit={onSubmit}>
                 <div>
                     <label className="label--singelPage">{title}</label>
