@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
-import './UserList.css'
+import './UserList.css';
 
 export interface Person {
   first_name: string;
@@ -12,8 +12,8 @@ export interface Person {
 }
 
 const CardPerson = () => {
-const avatarNo: string ='https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png';
-const [dataUsers, setDataUsers] = useState<Person[]>([])
+
+  const [dataUsers, setDataUsers] = useState<Person[]>([])
   const [totalPages, setTolatPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)
 
@@ -43,6 +43,7 @@ const [dataUsers, setDataUsers] = useState<Person[]>([])
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
   const change: string = "Change Page";
+  const avatarNo: string = 'https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png';
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
@@ -70,20 +71,13 @@ const [dataUsers, setDataUsers] = useState<Person[]>([])
             return (
               <div key={user.id} className="listItem--card">
                 <Card sx={{ maxWidth: 345 }}>
-                  { !user.avatar  && <CardMedia
-                    component="img"
-                    alt="No Photo"
-                    height="180"
-                    key={user.avatar}
-                    image={avatarNo}
-                  />}
-                 {user.avatar && <CardMedia
+                  <CardMedia
                     component="img"
                     alt="Photo User"
                     height="180"
                     key={user.avatar}
-                    image={user.avatar}
-                  />}
+                    image={user?.avatar || avatarNo}
+                  />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {user.first_name}
