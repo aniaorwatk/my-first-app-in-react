@@ -43,7 +43,7 @@ const CardPerson = () => {
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
   const change: string = "Change Page";
-  const avatarNo: string = 'https://cdn.pixabay.com/photo/2016/04/01/10/11/avatar-1299805_960_720.png';
+  const avatarNo: string = '../../assets/avatar.png';
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)

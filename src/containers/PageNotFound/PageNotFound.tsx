@@ -1,12 +1,13 @@
-import React,{FC} from 'react'
+import React, { FC } from 'react'
+import './PageNotFound.css'
 
 const PageNotFound = () => {
     const infNotFound: string = "This page could not be found";
-    const imageNotFound : string ="https://i.imgur.com/qIufhof.png";
+    const imageNotFound: string = "https://i.imgur.com/qIufhof.png";
     return (
-        <div id="wrapper">
+        <div className="wrapper--page">
             <img src={imageNotFound} />
-            <div id="info">
+            <div>
                 <h3>{infNotFound}</h3>
             </div>
         </div >

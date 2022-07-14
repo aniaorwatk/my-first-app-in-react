@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import CardPerson from '../UserList/CardPerson';
+import CardPerson from './CardPerson';
 
 describe('Form Component', () => {
     it('Should render value in input', () => {
