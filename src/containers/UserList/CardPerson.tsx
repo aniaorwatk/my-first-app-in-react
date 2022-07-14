@@ -13,7 +13,7 @@ export interface Person {
 const CardPerson = () => {
 
   const [dataUsers, setDataUsers] = useState<Person[]>([])
-  const [totalPages, setTolatPages] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const CardPerson = () => {
       }
 
       setDataUsers(json.data)
-      setTolatPages(json.total_pages)
+      setTotalPages(json.total_pages)
       setNumberPage(json.page)
     };
     apiUser()
@@ -87,7 +87,7 @@ const CardPerson = () => {
                   </CardContent>
                   <CardActions>
                     <Link to={`/${user.id}`}>
-                      <Button className="userList--lernMore" size="small">
+                      <Button className="userList--learnMore" size="small">
                         {learnMore.toUpperCase()}
                       </Button>
                     </Link>
