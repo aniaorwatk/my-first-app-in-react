@@ -1,110 +1,110 @@
- form {
-    max-width: 30rem;
-    margin: 0 auto;
-  }
-  
-  .h1--form {
-    font-weight: 100;
-    color: var(--dark-color);
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--blue-color);
-  }
-  
-  .form {
-    background: var(--dark-color);
-    max-width: 90rem;
-    margin: 0 auto;
-  }
-  
-  p {
-    color: var(--error-color);
-  }
-  
-  input, textarea {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 1rem;
-    border: 1px solid var(--dark-color);;
-    padding: 1rem 1rem;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-  }
+.singlePage--box{
+  background-image: url('../assets/white-background.png');
+  background-size: cover;
+  padding: 2rem;
+} 
 
-  textarea{
-    height: 15rem;
-  }
+form {
+  max-width: 30rem;
+  margin: 0 auto;
+}
   
-  .label--singelPage {
-    line-height: 2;
-    text-align: left;
-    display: block;
-    margin-bottom: 1.2rem;
-    margin-top: 1.2rem;
-    color:  var(--dark-color);
-    font-size: 1rem;
-    font-weight: 200;
-  }
+.h1--form {
+  font-weight: 300;
+  color: var(--dark-color);
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--blue-color);
+}
   
-  input[type="submit"] {
-    background: var(--blue-color);
-    color: var(--cream-color);
-    text-transform: uppercase;
-    border: none;
-    margin-top: 2rem;
-    padding: 1.1rem;
-    font-size: 1.2rem;
-    font-weight: 100;
-    letter-spacing: 1rem;
-  }
+p {
+  color: var(--error-color);
+}
   
-  input[type="submit"]:hover {
-    color:  var(--dark-color);
-  }
-  
-  input[type="button"]:active,
-  input[type="submit"]:active {
-    transition: 0.3s all;
-    transform: translateY(3px);
-    border: 1px solid transparent;
-    opacity: 0.8;
-  }
-  
-  input:disabled {
-    opacity: 0.4;
-  }
-  
-  input[type="button"]:hover {
-    transition: 0.3s all;
-  }
-  
-  input[type="button"],
-  input[type="submit"] {
-    -webkit-appearance: none;
-  }
-  
-  .App {
-    max-width: 100rem;
-    margin: 0 auto;
-  }
+input, textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--dark-color);;
+  padding: 1rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
 
-  .singlePage--cardUser{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+textarea{
+  height: 15rem;
+}
+  
+.label--singelPage {
+  text-align: left;
+  display: block;
+  margin-bottom: 1.2rem;
+  margin-top: 1.2rem;
+  color:  var(--dark-color);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+  
+input[type="submit"] {
+  background: var(--blue-color);
+  color: var(--cream-color);
+  text-transform: uppercase;
+  border: none;
+  margin-top: 2rem;
+  padding: 1.1rem;
+  font-size: 1.2rem;
+  letter-spacing: 1rem;
+}
+  
+input[type="submit"]:hover {
+  color:  var(--dark-color);
+}
+  
+input[type="button"]:active,
+input[type="submit"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+border: 1px solid transparent;
+  opacity: 0.8;
+}
+  
+input:disabled {
+  opacity: 0.4;
+}
+  
+input[type="button"]:hover {
+  transition: 0.3s all;
+}
+  
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+  
+.App {
+  max-width: 100rem;
+  margin: 0 auto;
+}
 
-  .singlePage--image{
-    width: 20rem;
-    border-radius: 1rem;
-    margin: 2rem;
-  }
+.singlePage--cardUser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .singlePage--name{
-    font-size: 2rem;
-  }
+.singlePage--image{
+  width: 20rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px var(--dark-color);
+}
+
+.singlePage--name{
+  font-size: 2rem;
+}
 
 
   

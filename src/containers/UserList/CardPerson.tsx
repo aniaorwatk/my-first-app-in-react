@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
+import './UserList.css'
 export interface Person {
   first_name: string;
   last_name: string;
@@ -33,13 +34,14 @@ const CardPerson = () => {
     apiUser()
   }, [numberPage]);
 
-  const learnMore = "Learn more";
+  const learnMore = "Send Message";
   const add = numberPage + 1;
   const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
+  const change: string = "Change Page";
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
@@ -52,7 +54,7 @@ const CardPerson = () => {
         <input className="input--card"
           type="text"
           name="query"
-          placeholder="write search user"
+          placeholder="search ..."
           value={query}
           onChange={searchPeople}
         />
@@ -85,7 +87,7 @@ const CardPerson = () => {
                   <CardActions>
                     <Link to={`/${user.id}`}>
                       <Button className="userList--lernMore" size="small">
-                        {learnMore}
+                        {learnMore.toUpperCase()}
                       </Button>
                     </Link>
                   </CardActions>
@@ -95,7 +97,7 @@ const CardPerson = () => {
           })
         }
       </div>
-      <button className="listItem--button" onClick={changePage}>Change Page</button>
+      <button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button>
     </section>
   )
 }

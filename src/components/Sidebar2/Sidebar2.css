@@ -1,0 +1,35 @@
+.sidebar--box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--blue-color); 
+}
+
+.sidebar--typography{
+    align-self: start;
+}
+
+.sidebar--button{
+    align-self: center;
+    padding: 1rem;
+    width: 17rem;
+    background-color: var(--cream-color);
+    color: var(--blue-color);
+    font-weight: bold;
+    border-radius: 1rem;
+}
+
+.sidebar--button:hover{
+    color: var(--dark-color);
+}
+
+.sidebar--img{
+    align-self: center;
+    width: 17rem;
+    height: 17rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 2px var(--dark-color);
+}

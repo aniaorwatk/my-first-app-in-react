@@ -9,20 +9,22 @@ interface FormValues {
 }
 
 const resolver: Resolver<FormValues> = async (values) => {
+    const typeTitle = "required";
+    const messageTitle = "This is required.";
     return {
         values: !values.title ? {} : values,
         errors: !values.title
             ? {
                 title: {
-                    type: "required",
-                    message: "This is required."
+                    type: typeTitle,
+                    message: messageTitle
                 }
             }
             : {}
     };
 };
 
-const SinglePage =()=> {
+const SinglePage = () => {
 
     const para = useParams()
     const [dataUser, setDataUser] = useState<Person>()
@@ -53,21 +55,21 @@ const SinglePage =()=> {
     const title: string = "Title message";
     const messagetoUser: string = `Write a message to the ${dataUser?.first_name}`;
     const message: string = "Your message";
-    const placeholderTitle: string ="Title..."; 
-    const placeholderMessage: string ="Message..."; 
+    const placeholderTitle: string = "Title...";
+    const placeholderMessage: string = "Message...";
 
     return (
-        <div>
+        <div className="singlePage--box">
             <div className="singlePage--cardUser">
-            <p className="singlePage--name">{dataUser?.first_name} {dataUser?.last_name}</p>
-            <img src={dataUser?.avatar} className="singlePage--image" />
+                <p className="singlePage--name">{dataUser?.first_name} {dataUser?.last_name}</p>
+                <img src={dataUser?.avatar} className="singlePage--image" />
             </div>
             <div className="App">
                 <h1 className="h1--form"> {messagetoUser} </h1>
                 <form onSubmit={onSubmit}>
                     <div>
                         <label className="label--singelPage">{title}</label>
-                        <input {...register("title")} placeholder= {placeholderTitle}/>
+                        <input {...register("title")} placeholder={placeholderTitle} />
                         {errors?.title && <p>{errors.title.message}</p>}
                     </div>
                     <div>
