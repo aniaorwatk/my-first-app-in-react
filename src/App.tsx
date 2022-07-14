@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UserList />} />
         <Route path="/:id" element={<SinglePage />} />
-        <Route element={<PageNotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       </ Routes>
       <Sidebar />
     </Container>
