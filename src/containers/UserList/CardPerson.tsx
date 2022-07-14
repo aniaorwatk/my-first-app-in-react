@@ -2,7 +2,6 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
 import './UserList.css';
-
 export interface Person {
   first_name: string;
   last_name: string;
@@ -43,7 +42,7 @@ const CardPerson = () => {
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
   const change: string = "Change Page";
-  const avatarNo: string = '../../assets/avatar.png';
+  const avatarNo: string = 'https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg';
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
