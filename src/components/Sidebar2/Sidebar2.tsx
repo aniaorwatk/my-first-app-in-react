@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
                     {subtitle}
                 </Typography>
                 <img className="sidebar--img" src={imageShiba} />
-                <button onClick={getShibaImg} className="sidebar--button"> {sidebarButton.toUpperCase()} </button>
+                <button onClick={getShibaImg} data-testid="get-shiba" className="sidebar--button">{sidebarButton.toUpperCase()}</button>
             </Box>
         </>
     )
