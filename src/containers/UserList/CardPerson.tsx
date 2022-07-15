@@ -37,8 +37,8 @@ const CardPerson = () => {
   const learnMore = "Send Message";
   const add = numberPage + 1;
   const subtract = numberPage - 1;
-  const MinTotalPages =  totalPages ? totalPages : totalPages + 1
-  const changePage = () => (numberPage < MinTotalPages ? setNumberPage(add) : setNumberPage(subtract))
+  const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
+  // const xxx =(numberPage: number)=> setNumberPage(numberPage)
 
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
@@ -99,7 +99,8 @@ const CardPerson = () => {
           })
         }
       </div>
-      <button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button> :
+      { totalPages ? (<button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button> ) : undefined }
+      {/* <button className="listItem--button" onClick={(e: any,numberPage: number)=> {setNumberPage(numberPage)}}>{change.toUpperCase()}</button> */}
     </section>
   )
 }
