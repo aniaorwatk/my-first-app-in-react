@@ -38,7 +38,6 @@ const CardPerson = () => {
   const add = numberPage + 1;
   const subtract = numberPage - 1;
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
-  // const xxx =(numberPage: number)=> setNumberPage(numberPage)
 
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
