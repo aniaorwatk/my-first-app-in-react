@@ -13,7 +13,7 @@
 }
 
 .userList--box{
-    background-image: url("../assets/grey-background.jpg");
+    background-image: url("../../assets/grey-background.jpg");
 }
 
 .listItem--card{
@@ -23,7 +23,7 @@
     width: 15rem;
 }
 
-.userList--lernMore{
+.userList--learnMore{
     color: var(--blue-color);
 }
 
