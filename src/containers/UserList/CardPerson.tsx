@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
-import './UserList.css'
+import './UserList.css';
 export interface Person {
   first_name: string;
   last_name: string;
@@ -13,7 +13,7 @@ export interface Person {
 const CardPerson = () => {
 
   const [dataUsers, setDataUsers] = useState<Person[]>([])
-  const [totalPages, setTolatPages] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
   const [numberPage, setNumberPage] = useState(1)
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const CardPerson = () => {
       }
 
       setDataUsers(json.data)
-      setTolatPages(json.total_pages)
+      setTotalPages(json.total_pages)
       setNumberPage(json.page)
     };
     apiUser()
@@ -42,6 +42,7 @@ const CardPerson = () => {
   const [query, setQuery] = useState<string>('')
   const searchName: string = "Find User: ";
   const change: string = "Change Page";
+  const avatarNo: string = 'https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg';
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
@@ -74,7 +75,7 @@ const CardPerson = () => {
                     alt="Photo User"
                     height="180"
                     key={user.avatar}
-                    image={user.avatar}
+                    image={user?.avatar || avatarNo}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -86,7 +87,7 @@ const CardPerson = () => {
                   </CardContent>
                   <CardActions>
                     <Link to={`/${user.id}`}>
-                      <Button className="userList--lernMore" size="small">
+                      <Button className="userList--learnMore" size="small">
                         {learnMore.toUpperCase()}
                       </Button>
                     </Link>
@@ -97,7 +98,8 @@ const CardPerson = () => {
           })
         }
       </div>
-      <button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button>
+      { totalPages ? (<button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button> ) : undefined }
+      {/* <button className="listItem--button" onClick={(e: any,numberPage: number)=> {setNumberPage(numberPage)}}>{change.toUpperCase()}</button> */}
     </section>
   )
 }
