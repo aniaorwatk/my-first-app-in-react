@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CardActions, CardContent, CardMedia, Button, Typography, Card } from '@mui/material';
 import './UserList.css';
+import labels from '../../labels';
 export interface Person {
   first_name: string;
   last_name: string;
@@ -40,8 +41,7 @@ const CardPerson = () => {
   const changePage = () => (numberPage < totalPages ? setNumberPage(add) : setNumberPage(subtract))
 
   const [query, setQuery] = useState<string>('')
-  const searchName: string = "Find User: ";
-  const change: string = "Change Page";
+
   const avatarNo: string = 'https://ecommerce-europe.eu/wp-content/uploads/2016/06/no-pic-ava.jpg';
 
   const searchPeople = (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +51,7 @@ const CardPerson = () => {
   return (
     <section className="userList">
       <form className="form--card">
-        <label className="label--card" htmlFor="query">{searchName}</label>
+        <label className="label--card" htmlFor="query">{labels.cardPerson.searchName}</label>
         <input className="input--card"
           type="text"
           name="query"
@@ -98,7 +98,7 @@ const CardPerson = () => {
           })
         }
       </div>
-      { totalPages ? (<button className="listItem--button" onClick={changePage}>{change.toUpperCase()}</button> ) : undefined }
+      {totalPages ? (<button className="listItem--button" onClick={changePage}>{labels.cardPerson.change.toUpperCase()}</button>) : undefined}
       {/* <button className="listItem--button" onClick={(e: any,numberPage: number)=> {setNumberPage(numberPage)}}>{change.toUpperCase()}</button> */}
     </section>
   )

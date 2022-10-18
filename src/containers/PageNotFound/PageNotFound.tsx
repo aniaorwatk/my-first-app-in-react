@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
+import React from 'react'
+import labels from '../../labels';
 import './PageNotFound.css'
 
 const PageNotFound = () => {
-    const infNotFound: string = "This page could not be found";
     const imageNotFound: string = "https://i.imgur.com/qIufhof.png";
     return (
         <div className="wrapper--page">
             <img src={imageNotFound} />
             <div>
-                <h3>{infNotFound}</h3>
+                <h3>{labels.pageNotFound.infNotFound}</h3>
             </div>
         </div >
     )

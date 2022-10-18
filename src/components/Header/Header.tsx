@@ -1,22 +1,20 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Box, Typography } from '@mui/material';
+import labels from '../../labels';
 import './Header.css';
 
-const Header: FC = () => {
-  const title: string = 'Meet ReqRes users!';
-  const subtitle: string = 'Application created with free ReqRes API';
-
-    return(
-      <>
-        <Box className="header--box" >
-          <Typography variant="h4" gutterBottom component="div">
-            {title}
-          </ Typography> 
-          <Typography variant="h5" gutterBottom component="div">
-            {subtitle}
-          </ Typography>
-        </Box>
-      </>
+const Header = () => {
+  return (
+    <>
+      <Box className="header--box" >
+        <Typography variant="h4" gutterBottom component="div">
+          {labels.header.title}
+        </ Typography>
+        <Typography variant="h5" gutterBottom component="div">
+          {labels.header.subtitle}
+        </ Typography>
+      </Box>
+    </>
   )
 }
 
