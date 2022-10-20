@@ -1,6 +1,13 @@
-.wrapper--page{
+.wrapper--pageNot{
     display: flex;
     display: contents;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    background-color: blue;
+}
+
+.wrapper--imgNot{
+    align-self: center;
+    margin: 0 auto;
 }
